@@ -1,6 +1,131 @@
+
 <!DOCTYPE html>
-<html lang="es">
+<html>
+
+<head>
+    <meta charset='utf-8'>
+</head>
+
+<body>
     <nav>
-        <a href="./html\index.html">html</a> //
-        <a href="./css\index.html">css</a>
+        <div class="menu-horizontal">
+            <div><a href="">HTML</a>
+                <ul>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+
+                </ul>
+            </div>
+            <div><a href="">CSS</a>
+                <ul>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+
+                </ul>
+            </div>
+            <div><a href="">JSCRIPT</a>
+                <ul>
+                    <li><a href="js\ej01.html">clase 2 ej 01</a></li>
+                    <li><a href="js\ej02.html">clase 2 ej 02</a></li>
+                    <li><a href="js\ej02.html">clase 2 ej 03</a></li> 
+                    <li><a href="js\ej02.html">clase 2 ej 04</a></li>
+
+                </ul>
+            </div>
+            <div><a href="">ESPECIALES</a>
+                <ul>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+
+                </ul>
+            </div>
+            <div><a href="">PHP</a>
+                <ul>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">X</a></li>
+
+                </ul>
+            </div>
+        </div>
     </nav>
+</body>
+
+</html>
+<style>
+    .menu-horizontal {
+        height: 5vh;
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+        background: rgb(36, 36, 36);
+        padding: 5px;        
+        gap: 5px;
+        position: fixed;
+    }
+
+    .menu-horizontal div {
+        background-color: rgba(74, 74, 74, 0.74);
+        width: 200px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .menu-horizontal div ul {
+        display: none;
+        position: absolute;
+        background-color: rgb(74, 74, 74);
+        list-style: none;
+        top: 100%;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .menu-horizontal div:hover ul {
+        display: block;
+    }
+
+    .menu-horizontal div:hover {
+        background-color: rgb(85, 85, 85);
+    }
+
+    .menu-horizontal div ul li {
+        text-align: center;
+        padding: 5px;
+    }
+
+    .menu-horizontal div a {
+        width: 100%;
+        height: 100%;
+        color: white; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 100%;
+    }
+</style>

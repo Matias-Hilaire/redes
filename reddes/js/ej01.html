@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio de Personas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 60%;
+            margin: 0 auto;
+        }
+        .form-container, .control-container {
+            background-color: #cceeff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .control-container {
+            background-color: #ffffcc;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        #table-container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ejercicio 01</h1>
+       <p><a href="../index.html">menu</a></p>
+
+        <div class="form-container">
+            <h2>Adicionar persona</h2>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre"><br><br>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido"><br><br>
+            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fechaNacimiento"><br><br>
+            <button onclick="crearPersona()">Crea persona</button>
+        </div>
+
+        <div class="control-container">
+            <h2>Control</h2>
+            <button id="toggleTabla" onclick="togglePersonas()">Ver personas</button>
+        </div>
+
+        <div id="table-container">
+            <h2>Personas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Fecha de Nacimiento</th>
+                    </tr>
+                </thead>
+                <tbody id="personasTabla"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let personas = [];
+        let tablaVisible = false;
+
+        function crearPersona() {
+            let nombre = document.getElementById("nombre").value;
+            let apellido = document.getElementById("apellido").value;
+            let fechaNacimiento = document.getElementById("fechaNacimiento").value;
+
+            if (nombre && apellido && fechaNacimiento) {
+                let persona = {
+                    nombre: nombre,
+                    apellido: apellido,
+                    fechaNacimiento: fechaNacimiento
+                };
+                personas.push(persona);
+                actualizarTabla()
+                limpiarCampos();
+                if (!tablaVisible) {
+                    togglePersonas();
+                }
+            } else {
+                alert("Por favor completa todos los campos");
+            }
+        }
+
+        function actualizarTabla() {
+            let tabla = document.getElementById("personasTabla");
+            tabla.innerHTML = "";
+            personas.forEach(persona => {
+                let row = `<tr>
+                    <td>${persona.nombre}</td>
+                    <td>${persona.apellido}</td>
+                    <td>${persona.fechaNacimiento}</td>
+                </tr>`;
+                tabla.innerHTML += row;
+            });
+        }
+
+        function togglePersonas() {
+            let tableContainer = document.getElementById("table-container");
+            let toggleButton = document.getElementById("toggleTabla");
+            
+            if (tablaVisible) {
+                tableContainer.style.display = "none";
+                toggleButton.textContent = "Ver personas";
+            } else {
+                tableContainer.style.display = "block";
+                toggleButton.textContent = "Ocultar personas";
+            }
+
+            tablaVisible = !tablaVisible;
+        }
+
+        function limpiarCampos() {
+            document.getElementById("nombre").value = "";
+            document.getElementById("apellido").value = "";
+            document.getElementById("fechaNacimiento").value = "";
+        }
+    </script>
+</body>
+</html>
